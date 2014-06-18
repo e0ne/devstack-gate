@@ -102,7 +102,12 @@ EOF
         echo "CINDER_SECURE_DELETE=False" >>localrc
     fi
 
-    if [[ "$DEVSTACK_GATE_TEMPEST_HEAT_SLOW" -eq "1" ]]; then
+    if [[ "$DEVSTACK_CINDER_DRIVER" == "ceph" ]]; then
+        echo "CINDER_DRIVER=ceph" >> localrc
+        MY_ENABLED_SERVICES+=,ceph
+    fi
+
+    if [ "$DEVSTACK_GATE_TEMPEST_HEAT_SLOW" -eq "1" ]; then
         echo "HEAT_CREATE_TEST_IMAGE=False" >>localrc
         # Use Fedora 20 for heat test image, it has heat-cfntools pre-installed
         echo "HEAT_FETCHED_TEST_IMAGE=Fedora-i386-20-20131211.1-sda" >>localrc
