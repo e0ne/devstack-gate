@@ -338,7 +338,7 @@ function setup_workspace {
             # Start with a cached git repo if possible
             rsync -a /opt/git/${PROJECT}/ `basename $PROJECT`
         fi
-        setup_project $PROJECT $base_branch
+        #setup_project $PROJECT $base_branch
     done
     # It's important we are back at DEST for the rest of the script
     cd $DEST
