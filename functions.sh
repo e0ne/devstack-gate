@@ -178,7 +178,8 @@ function git_remote_update {
 }
 
 function git_remote_set_url {
-    git remote set-url $1 $2
+    #git remote set-url $1 $2
+    echo 1
 }
 
 function git_clone_and_cd {
