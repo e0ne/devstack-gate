@@ -268,7 +268,7 @@ function setup_project {
     echo "Setting up $project @ $branch"
     git_clone_and_cd $project $short_project
 
-    git_remote_set_url origin $git_base/$project
+    #git_remote_set_url origin $git_base/$project
 
     # allow for possible project branch override
     local uc_project=`echo $short_project | tr [:lower:] [:upper:] | tr '-' '_' | sed 's/[^A-Z_]//'`
